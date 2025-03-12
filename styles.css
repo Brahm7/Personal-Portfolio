@@ -1,0 +1,262 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  /* border: solid 1px red; */
+}
+
+.main-section {
+  position: relative;
+  width: 100vw;
+  height: 85vh;
+  background-image: url(pics/blob-scene-haikei.svg);
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensures the image covers the whole element */
+  background-position: center; /* Centers the image */
+}
+
+.navbar {
+  display: flex;
+  justify-content: end;
+  gap: 30px;
+  background-color: transparent;
+  padding: 15px 50px;
+  font-family: "Roboto Mono", monospace;
+}
+
+.links {
+  font-size: 1.1rem;
+  color: #e9ecef;
+  text-decoration: none;
+}
+
+.links:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.introduction {
+  padding: 50px;
+  margin-top: 50px;
+}
+
+.introduction #name {
+  width: 300px;
+}
+
+.introduction span {
+  color: aliceblue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.introduction span:hover {
+  color: #4f8ac5;
+}
+
+#hello-world {
+  font-size: 1.05rem;
+  font-weight: 500;
+  font-family: "Roboto Mono", monospace;
+  color: #4f8ac5;
+}
+
+#name {
+  font-size: 3.5rem;
+  font-weight: 500;
+  color: aliceblue;
+}
+
+#front-end {
+  font-family: "Roboto Mono", monospace;
+  color: rgb(146, 152, 158);
+  font-weight: 500;
+  width: 500px;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 15px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.socials img {
+  width: 35px;
+}
+
+#blob {
+  width: 35%;
+  min-width: 450px;
+  margin-top: 50px;
+  filter: grayscale(100%);
+}
+
+.about-me-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background-color: #e9ecef;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+
+.container h1 {
+  color: #212529;
+  font-family: "Roboto Mono", monospace;
+}
+
+.container p {
+  margin-top: 15px;
+  width: 500px;
+  font-weight: 400;
+  font-size: 1.2rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.container img {
+  width: 600px;
+}
+
+.text span {
+  color: #4f8ac5;
+}
+
+@media (max-width: 768px) {
+  .main-section {
+    height: 90vh;
+  }
+
+  .hero {
+    position: absolute; /* Keep it positioned */
+    top: 50%; /* Center it */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .introduction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 90%;
+    margin-top: 40px;
+  }
+
+  #name {
+    font-size: 2.5rem;
+  }
+
+  #front-end {
+    max-width: 90%;
+    font-size: 1rem;
+  }
+
+  .socials img {
+    width: 30px;
+  }
+
+  #blob {
+    width: 75%;
+    margin-top: -1px;
+    min-width: 300px;
+  }
+
+  .about-me-section {
+    height: 95vh;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+    margin: auto;
+  }
+
+  .container p {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+
+  .container img {
+    width: 80%;
+    max-width: 400px;
+    margin-top: 30px;
+  }
+
+  .text {
+    width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .links {
+    font-size: 0.85rem;
+  }
+
+  .introduction {
+    padding: 15px;
+    width: 95%;
+  }
+
+  #name {
+    font-size: 2rem;
+  }
+
+  #front-end {
+    font-size: 0.9rem;
+  }
+
+  .socials {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  #blob {
+    width: 90%;
+    min-width: 250px;
+  }
+
+  .container {
+    width: 95%;
+    gap: 20px;
+  }
+
+  .container img {
+    width: 90%;
+    max-width: 300px;
+  }
+}
