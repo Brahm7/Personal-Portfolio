@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Abraham's Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,12 +16,16 @@
   <body>
     <div class="main-section">
       <div class="navbar">
-        <a class="links" href="/">[About Me]</a>
+        <!-- <a class="links" href="#about-me-section">[About Me]</a> -->
         <a class="links" href="/">[My Work]</a>
-        <a class="links" href="/">[Contact]</a>
         <a class="links" href="/">[Resume]</a>
+        <a class="links" href="/">[Contact]</a>
       </div>
-
+      <div id="nav-icon1">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <div class="hero">
         <div class="introduction">
           <!--put a typing animation on the hello world-->
@@ -28,7 +33,8 @@
           <p id="name">Abraham Gonzalez.</p>
           <p id="front-end">
             I build solid and scalable frontend products with great user
-            experiences. <span>Learn more about me.</span>
+            experiences.
+            <a href="#about-me-section" id="learn">Learn more about me.</a>
           </p>
           <div class="socials">
             <!--Change icons from png to svg to change color of icon when hover-->
@@ -69,7 +75,7 @@
       </div>
     </div>
 
-    <div class="about-me-section">
+    <div class="about-me-section" id="about-me-section">
       <div class="container">
         <div class="text">
           <h1><span>[</span>About Me<span>]</span></h1>

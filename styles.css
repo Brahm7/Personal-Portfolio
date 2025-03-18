@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
   /* border: 1px solid red; */
 }
 
@@ -36,6 +37,57 @@
   text-decoration: underline;
 }
 
+#nav-icon1 {
+  width: 30px; /* Reduced width */
+  height: 20px; /* Reduced height */
+  position: relative;
+  margin: 15px auto; /* Adjusted margin */
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+  display: none; /* Hidden on larger screens */
+}
+
+#nav-icon1 span {
+  display: block;
+  position: absolute;
+  height: 3px; /* Thinner bars */
+  width: 100%;
+  background: #ffffff;
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transition: 0.25s ease-in-out;
+}
+
+/* Adjusted positioning for the bars */
+#nav-icon1 span:nth-child(1) {
+  top: 0px;
+}
+
+#nav-icon1 span:nth-child(2) {
+  top: 8px; /* Reduced spacing */
+}
+
+#nav-icon1 span:nth-child(3) {
+  top: 16px; /* Reduced spacing */
+}
+
+/* Transformations for the open state */
+#nav-icon1.open span:nth-child(1) {
+  top: 8px;
+  transform: rotate(135deg);
+}
+
+#nav-icon1.open span:nth-child(2) {
+  opacity: 0;
+  left: -30px; /* Adjusted for smaller width */
+}
+
+#nav-icon1.open span:nth-child(3) {
+  top: 8px;
+  transform: rotate(-135deg);
+}
+
 .hero {
   position: absolute;
   top: 50%;
@@ -56,23 +108,25 @@
   min-width: 300px;
 }
 
-.introduction span {
+.introduction a {
   color: aliceblue;
   text-decoration: underline;
   cursor: pointer;
 }
 
-.introduction span:hover {
+.introduction a:hover {
   color: #4f8ac5;
 }
 
 .typewriter {
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: 0.15em solid orange; /* The typewriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
+  overflow: hidden;
+  border-right: 0.15em solid rgb(255, 255, 255); /* Typewriter cursor */
+  white-space: nowrap;
   display: inline-block;
-  letter-spacing: 0.15em; /* Adjust as needed */
-  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  letter-spacing: 0.15em;
+  width: 0; /* Start hidden */
+  animation: typing 2s steps(40, end) forwards,
+    blink-caret 0.5s step-end infinite;
 }
 
 /* The typing effect */
@@ -81,7 +135,7 @@
     width: 0;
   }
   to {
-    width: 100%;
+    width: 250px; /* Stop exactly at the text width */
   }
 }
 
@@ -108,6 +162,20 @@
   width: 500px !important;
   font-weight: 500;
   color: aliceblue;
+  opacity: 0; /* Start hidden */
+  animation: fadeInSlideUp 0.6s ease-out forwards;
+  animation-delay: 2s; /* Matches the typing duration */
+}
+
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 #front-end {
@@ -116,6 +184,9 @@
   color: rgb(146, 152, 158);
   font-weight: 500;
   max-width: 90%;
+  opacity: 0; /* Start hidden */
+  animation: fadeInSlideUp 0.6s ease-out forwards;
+  animation-delay: 2.5s; /* Matches the typing duration */
 }
 
 .socials {
@@ -123,6 +194,49 @@
   gap: 1vw;
   margin-top: 1.5vh;
   cursor: pointer;
+  opacity: 0; /* Start hidden */
+  transform: translateX(-50px); /* Start position off-screen */
+  animation: slideInFromLeft 0.6s ease-out forwards;
+  animation-delay: 2.8s; /* Adjust to match other animations */
+}
+
+.socials {
+  display: flex;
+  gap: 1vw;
+  margin-top: 1.5vh;
+  cursor: pointer;
+}
+
+.socials a {
+  opacity: 0; /* Start hidden */
+  transform: translateX(-50px); /* Start position off-screen */
+  animation: slideInFromLeft 0.6s ease-out forwards;
+}
+
+/* Email Icon */
+.socials a:nth-child(3) {
+  animation-delay: 2.5s; /* Email appears first */
+}
+
+/* GitHub Icon */
+.socials a:nth-child(2) {
+  animation-delay: 2.8s; /* GitHub appears second */
+}
+
+/* LinkedIn Icon */
+.socials a:nth-child(1) {
+  animation-delay: 3.1s; /* LinkedIn appears last */
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .socials img {
@@ -153,7 +267,8 @@
 .text h1 {
   color: #212529;
   font-family: "Roboto Mono", monospace !important;
-  font-size: clamp(2rem, 3vw, 2rem); /* minimum, preferred , maximum*/
+  font-size: clamp(1.5rem, 1.5vw, 2rem); /* minimum, preferred , maximum*/
+  margin-bottom: 10px;
 }
 
 .container p {
@@ -175,4 +290,48 @@
 
 .text span {
   color: #4f8ac5;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    justify-content: center;
+    align-items: center;
+    display: none; /* Hide navbar initially */
+  }
+
+  .navbar.show {
+    display: flex; /* Show when toggled */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .links {
+    opacity: 1;
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.1rem;
+  }
+
+  #nav-icon1 {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 1000;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .introduction {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
 }
